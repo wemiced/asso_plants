@@ -1,4 +1,4 @@
-[
+window.plants = [
   {
     "name": "Ail",
     "good": ["Asperge", "Betterave", "Concombre", "Fraisier", "Laitue", "Tomate"],
@@ -164,4 +164,4 @@
     "good": ["Ail", "Asperge", "Carotte", "Céleri", "Chou", "Mache", "Mais", "Oignon", "Persil", "Poireau", "Radis"],
     "bad": ["Concombre", "Fenouil", "Haricot", "Pomme de terre"]
   }
-]
+];

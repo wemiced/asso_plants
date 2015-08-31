@@ -1,0 +1,90 @@
+@import "core/normalize";
+@import "core/tools";
+@import "core/colors";
+@import "core/media";
+@import "core/base";
+@import "core/grid";
+@import "core/button";
+@import "core/form";
+@import "core/animations";
+
+header {
+	background-color: $color-light;
+	padding: 20px 0 40px 0;
+}
+
+footer {
+	background-color: $color-dark;
+	padding: 20px 0 20px 0;
+	h4 {
+		color:$color-dark-dark;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.small-circle {
+	width: 75px;
+	height: 75px;
+	margin: 0 auto;
+}
+
+.big-circle {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+}
+
+.SearchBar {
+	position:absolute;
+	bottom:-20px;
+	width: 100%;
+	span {
+		width: 100%;
+		input:nth-child(1) {
+			width: 100%;
+			padding:25px;
+		}
+		input:nth-child(2) {
+			width: 100%;
+			padding:25px;
+		}
+	}
+	input {
+		position:absolute;
+		right:0;
+		padding:12px;
+	}
+}
+
+.plant-box {
+	margin-bottom: 15px;
+	div {
+		padding: 15px;
+		text-align: center;
+	}
+}
+
+.associated-box {
+	padding:50px 0px 25px 0px;
+}
+
+.tt-menu {
+	width: 100%;
+	&.tt-open {
+		width:100%;
+		background-color: #fff;
+		-moz-border-radius-bottomleft:3px;
+		-webkit-border-bottom-left-radius:3px;
+		border-bottom-left-radius:3px;
+		-moz-border-radius-bottomright:3px;
+		-webkit-border-bottom-right-radius:3px;
+		border-bottom-right-radius:3px;
+		border: 1px solid #D1D1D1;
+	}
+	.tt-dataset {
+		.tt-suggestion {
+			padding: 10px;
+		}
+	}
+}

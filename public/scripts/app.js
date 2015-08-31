@@ -7,15 +7,43 @@ var AssociationBox = React.createClass({
   },
   render: function() {
     var associatedPlants;
+    var descriptionAssociatedPlants;
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
       associatedPlants = <AssociatedPlants good={plant.good} bad={plant.bad} onSelectedPlant={this.displayAssociatedPlant} />
+      // TON CODE POUR LES DESCRIPTIONS DES PLANTES, IL EST LA
+      descriptionAssociatedPlants = <section className="bg-grey associated-box">
+                                      <div className="container">
+                                        <div className="three columns">
+                                          <div className="circle big-circle bg-grey-20"></div>
+                                        </div>
+                                        <div className="nine columns">
+                                          <h1 className="float-left">{this.state.selectedPlantName}</h1>
+                                          <i className="icon icon-cross float-right">X</i>
+                                          <hr className="clearfix"/>
+                                          <p> La tomate est un légume, euh en fait cest un fruit qui prends sa source au mont gerbier de jonc, elle se mange debout avec des bretelles. Cest super bon pour la santé, et ça fait péter.</p>
+                                        </div>
+                                      </div>
+                                    </section>
     }
     return (
       <div className='associationBox'>
-        <SearchBar plantsNames={this.props.data.map('name')} onSelectedPlant={this.displayAssociatedPlant} />
-        <h1>{this.state.selectedPlantName}</h1>
-        {associatedPlants}
+        <header>
+          <div className="container">
+            <h1 className="text-center"> Make plant not war</h1>
+            <h4 className="text-center">Tableau relationnel des associations de plantes pour potager</h4>
+          </div>
+        </header> 
+        <div className="container form">
+          <SearchBar plantsNames={this.props.data.map('name')} onSelectedPlant={this.displayAssociatedPlant} />
+        </div>
+        {descriptionAssociatedPlants}
+        <section className="double-top">
+          {associatedPlants}
+        </section>
+        <footer>
+            <h4 className="text-center text-dark-dark">Made with love</h4>
+        </footer>
       </div>
     );
   }
@@ -58,10 +86,18 @@ var AssociatedPlants = React.createClass({
   render: function() {
     return(
       <div className='associatedPlants'>
-        <h3>Bonne</h3>
-        {this.displayPlantList(this.props.good)}
-        <h3>Mauvaise</h3>
-        {this.displayPlantList(this.props.bad)}
+        <div className="container">
+          <div className="six columns">
+            <h3>Bonne</h3>
+            <hr/>
+            {this.displayPlantList(this.props.good)}
+          </div>
+          <div className="six columns">
+            <h3>Mauvaise</h3>
+            <hr/>
+            {this.displayPlantList(this.props.bad)}
+          </div>
+        </div>
       </div>
     );
   }
@@ -73,8 +109,11 @@ var Plant = React.createClass({
   },
   render: function() {
     return (
-      <div className='plant' onClick={this.selectPlant}>
-        {this.props.name}
+      <div className='plant-box six columns bg-grey' onClick={this.selectPlant}>
+        <div>
+          <div className="circle small-circle bg-grey-20"></div>
+          {this.props.name}
+        </div>
       </div>
     );
   }
@@ -84,4 +123,3 @@ React.render(
   <AssociationBox data={window.plants} />,
   document.getElementById('content')
 );
-
