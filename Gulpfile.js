@@ -65,7 +65,7 @@
                 removeComments: false
             }]
         }))
-        .pipe(gulp.dest('./dist/assets/'));
+        .pipe(gulp.dest('./public/assets/'));
   });
 
 /* ## Watch
