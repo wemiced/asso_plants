@@ -150,6 +150,7 @@ header {
 
 
 .plant-box {
+	@include unselectable();
 	position:relative;
 	margin-bottom: 15px;
 	background-color: rgb(250, 250, 250);
@@ -171,13 +172,18 @@ header {
 	}
 	&:hover {
 		background-color: rgb(245, 245, 245);
+		div:nth-child(3){
+			opacity:1;
+		}
 	}
 	div:nth-child(3) {
+		opacity:0;
 		position:absolute;
 		bottom:0;
 		width: 100%;
 		height: 40px;
 		background-color: rgb(240, 240, 240);
+		@include transition(opacity, 200ms, ease-in-out);
 		&>div {
 			padding: 8px;
 			.friends-icon, .ennemies-icon {

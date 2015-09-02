@@ -25,17 +25,24 @@
   100% { opacity: 1; @include translateY(0px); }
 }
 
-@include keyframes(box-flyin) {
+@include keyframes(box-flyin-top) {
   0% { opacity: 0; @include translateY(-10px); }
   100% { opacity: 1; @include translateY(0px); }
 }
 
+@include keyframes(box-flyin-bottom) {
+  0% { opacity: 0; @include translateY(10px); }
+  100% { opacity: 1; @include translateY(0px); }
+}
+
+
 @include keyframes(box-flyout) {
   0% { opacity: 1; @include translateY(0px); }
-  100% { opacity: 0; @include translateY(-500px); }
+  100% { opacity: 0; @include translateY(-10px); }
 }
 
 
 .fly-in {
-   @include animation(box-flyin, 0.9s, 1);
+   @include animation(box-flyin-bottom, 0.9s, 1);
 }
+

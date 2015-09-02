@@ -1,6 +1,6 @@
 var AssociationBox = React.createClass({
   getInitialState: function() {
-    return {selectedPlantName: null};
+    return {selectedPlantName: 'Tomate'};
   },
   displayAssociatedPlant: function(plantName) {
     this.setState({selectedPlantName: plantName});
@@ -11,13 +11,12 @@ var AssociationBox = React.createClass({
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
       associatedPlants = <AssociatedPlants good={plant.good} bad={plant.bad} onSelectedPlant={this.displayAssociatedPlant} />
-      // TON CODE POUR LES DESCRIPTIONS DES PLANTES, IL EST LA
       descriptionAssociatedPlants = <div className="fly-in">
                                       <section className="bg-grey associated-box">
                                         <div className="container">
                                           <div className="three columns">
                                             <div className="circle big-circle">
-                                              <img src="assets/tomate.svg"/>
+                                              <img src={plant.img} />
                                             </div>
                                           </div>
                                           <div className="nine columns">
@@ -93,7 +92,7 @@ var AssociatedPlants = React.createClass({
     return(
       <div className='associatedPlants'>
         <div className="container">
-          <div className="six columns">
+          <div className="fly-in six columns">
             <div className="quad-bottom friends-icon float-left">
               <img src="assets/friends.svg"/>
             </div>
@@ -101,7 +100,7 @@ var AssociatedPlants = React.createClass({
             <div className="clearfix"></div>
             {this.displayPlantList(this.props.good)}
           </div>
-          <div className="six columns">
+          <div className="fly-in six columns">
             <div className="quad-bottom ennemies-icon float-left">
               <img src="assets/ennemies.svg"/>
             </div>
@@ -125,7 +124,7 @@ var Plant = React.createClass({
         <div className="double-top circle super-small-circle bg-white"></div>
         <div className="double-bottom">
           <div className="circle small-circle">
-            <img src="assets/salade.svg"/>
+            <img src="assets/oignon.svg" />
           </div>
           <h4 className="text-center"> {this.props.name} </h4>
         </div>
