@@ -11,7 +11,7 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "Pt Serif", serif;
   color: #222;
   @include selection-color(white,orange);
 }
@@ -42,7 +42,7 @@ p, h5, h6, label, tr {
 
 p {
   font-size: 1.6rem;
-  font-family: "PT Serif", serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 b, .b {
@@ -60,15 +60,9 @@ i, .i {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 hr {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
     border-width: 0;
-    border-top: 1px solid $color-grey-10;
+    border-top: 2px dashed $color-grey-20;
     width:100%;
-    height:1px;
-    background-color: white;
     display:inline-block;
-}
-
-.bg-grey hr {
-  border-top: 1px solid $color-grey-30;
 }

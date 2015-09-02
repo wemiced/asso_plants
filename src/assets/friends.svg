@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64px"
+   height="64px"
+   id="svg5689"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="footer_plant.svg">
+  <defs
+     id="defs5691" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.9445436"
+     inkscape:cx="-41.450242"
+     inkscape:cy="45.37442"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:document-units="px"
+     inkscape:grid-bbox="true"
+     inkscape:window-width="1280"
+     inkscape:window-height="748"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5694">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <path
+       id="path25314-1"
+       d="m 32.138375,56.878239 c -1.140066,0 -2.153456,-0.443343 -2.97683,-1.203405 L 9.7169973,36.166948 C 7.0568333,33.506781 4.079977,28.693161 4.2699924,24.006192 4.5866587,16.405732 10.857064,10.135327 18.457525,9.755296 c 5.700358,-0.2533539 10.957348,2.660164 13.68085,7.537148 2.723503,-4.813646 7.91718,-7.7904757 13.680851,-7.537148 7.537148,0.380031 13.744189,6.523759 14.187558,14.060881 0.253354,4.686969 -2.913518,9.817281 -5.130312,12.097417 l -19.76124,19.76124 c -0.760036,0.760062 -1.836764,1.203405 -2.976857,1.203405 z"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="scccccccccs"
+       style="fill:#808080;fill-opacity:1" />
+  </g>
+</svg>

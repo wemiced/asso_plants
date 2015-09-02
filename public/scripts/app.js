@@ -12,35 +12,38 @@ var AssociationBox = React.createClass({
       var plant = this.props.data.find({name: this.state.selectedPlantName});
       associatedPlants = <AssociatedPlants good={plant.good} bad={plant.bad} onSelectedPlant={this.displayAssociatedPlant} />
       // TON CODE POUR LES DESCRIPTIONS DES PLANTES, IL EST LA
-      descriptionAssociatedPlants = <section className="bg-grey associated-box">
-                                      <div className="container">
-                                        <div className="three columns">
-                                          <div className="circle big-circle bg-grey-20"></div>
+      descriptionAssociatedPlants = <div className="fly-in">
+                                      <section className="bg-grey associated-box">
+                                        <div className="container">
+                                          <div className="three columns">
+                                            <div className="circle big-circle">
+                                              <img src="assets/tomate.svg"/>
+                                            </div>
+                                          </div>
+                                          <div className="nine columns">
+                                            <h1 className="float-left fly-in">{this.state.selectedPlantName}</h1>
+                                            <hr className="clearfix"/>
+                                            <p> La tomate est un légume, euh en fait cest un fruit qui prends sa source au mont gerbier de jonc, elle se mange debout avec des bretelles. Cest super bon pour la santé, et ça fait péter.</p>
+                                          </div>
                                         </div>
-                                        <div className="nine columns">
-                                          <h1 className="float-left">{this.state.selectedPlantName}</h1>
-                                          <i className="icon icon-cross float-right">X</i>
-                                          <hr className="clearfix"/>
-                                          <p> La tomate est un légume, euh en fait cest un fruit qui prends sa source au mont gerbier de jonc, elle se mange debout avec des bretelles. Cest super bon pour la santé, et ça fait péter.</p>
-                                        </div>
-                                      </div>
-                                    </section>
+                                      </section>
+                                      <div className="triangle-illu"></div>
+                                    </div>
     }
     return (
       <div className='associationBox'>
-        <header>
-          <div className="container">
-            <h1 className="text-center"> Make plant not war</h1>
-            <h4 className="text-center">Tableau relationnel des associations de plantes pour potager</h4>
-          </div>
-        </header> 
-        <div className="container form">
-          <SearchBar plantsNames={this.props.data.map('name')} onSelectedPlant={this.displayAssociatedPlant} />
+        <div className="header-box">
+          <header>
+            <div className="container form">
+              <SearchBar plantsNames={this.props.data.map('name')} onSelectedPlant={this.displayAssociatedPlant} />
+            </div>
+          </header> 
         </div>
         {descriptionAssociatedPlants}
         <section className="double-top">
           {associatedPlants}
         </section>
+        <div className="footer-illu double-top"></div>
         <footer>
             <h4 className="text-center text-dark-dark">Made with love</h4>
         </footer>
@@ -70,7 +73,10 @@ var SearchBar = React.createClass({
     return (
       <div className='SearchBar'>
         <input type="text" name='vegetables' id='typeahead' placeholder="Rechercher une plante" ref="plantName" />
-        <input type="submit" value="Rechercher" />
+        <div className="search-icon">
+          <img src="assets/search.svg"/>
+        </div>
+        <input type="submit" value=""/>
       </div>
     );
   }
@@ -88,13 +94,19 @@ var AssociatedPlants = React.createClass({
       <div className='associatedPlants'>
         <div className="container">
           <div className="six columns">
-            <h3>Bonne</h3>
-            <hr/>
+            <div className="quad-bottom friends-icon float-left">
+              <img src="assets/friends.svg"/>
+            </div>
+            <h3 className="quad-bottom float-left i">Amis</h3>
+            <div className="clearfix"></div>
             {this.displayPlantList(this.props.good)}
           </div>
           <div className="six columns">
-            <h3>Mauvaise</h3>
-            <hr/>
+            <div className="quad-bottom ennemies-icon float-left">
+              <img src="assets/ennemies.svg"/>
+            </div>
+            <h3 className="quad-bottom float-left i">Ennemies</h3>
+            <div className="clearfix"></div>
             {this.displayPlantList(this.props.bad)}
           </div>
         </div>
@@ -109,10 +121,25 @@ var Plant = React.createClass({
   },
   render: function() {
     return (
-      <div className='plant-box six columns bg-grey' onClick={this.selectPlant}>
+      <div className='plant-box six columns fly-in' onClick={this.selectPlant}>
+        <div className="double-top circle super-small-circle bg-white"></div>
+        <div className="double-bottom">
+          <div className="circle small-circle">
+            <img src="assets/salade.svg"/>
+          </div>
+          <h4 className="text-center"> {this.props.name} </h4>
+        </div>
         <div>
-          <div className="circle small-circle bg-grey-20"></div>
-          {this.props.name}
+          <div>
+            <div className="friends-icon float-left">
+              <img src="assets/friends.svg"/>
+            </div>
+            <p className="float-left">12</p>
+            <p className="float-right">6</p>
+            <div className="ennemies-icon float-right">
+              <img src="assets/ennemies.svg"/>
+            </div>
+          </div>
         </div>
       </div>
     );
