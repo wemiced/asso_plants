@@ -22,7 +22,7 @@ var AssociationBox = React.createClass({
                                           <div className="nine columns">
                                             <h1 className="float-left fly-in">{this.state.selectedPlantName}</h1>
                                             <hr className="clearfix"/>
-                                            <p> La tomate est un légume, euh en fait cest un fruit qui prends sa source au mont gerbier de jonc, elle se mange debout avec des bretelles. Cest super bon pour la santé, et ça fait péter.</p>
+                                            <p> {plant.desc} </p>
                                           </div>
                                         </div>
                                       </section>
