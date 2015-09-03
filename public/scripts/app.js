@@ -10,7 +10,8 @@ var AssociationBox = React.createClass({
     var descriptionAssociatedPlants;
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
-      associatedPlants = <AssociatedPlants good={plant.good} bad={plant.bad} onSelectedPlant={this.displayAssociatedPlant} />
+      var data = this.props.data;
+      associatedPlants = <AssociatedPlants good={plant.good} bad={plant.bad} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
       descriptionAssociatedPlants = <div className="fly-in">
                                       <section className="bg-grey associated-box">
                                         <div className="container">
@@ -36,7 +37,7 @@ var AssociationBox = React.createClass({
             <div className="container form">
               <SearchBar plantsNames={this.props.data.map('name')} onSelectedPlant={this.displayAssociatedPlant} />
             </div>
-          </header> 
+          </header>
         </div>
         {descriptionAssociatedPlants}
         <section className="double-top">
@@ -84,8 +85,9 @@ var SearchBar = React.createClass({
 var AssociatedPlants = React.createClass({
   displayPlantList: function(plants) {
     var that = this;
-    return plants.map(function(plantName) {
-      return <Plant name={plantName} onSelectedPlant={that.props.onSelectedPlant} />;
+    return plants.map(function(plantName, plantImg) {
+      var plantInfo = that.props.data.find({name: plantName});
+      return <Plant name={plantName} img={plantInfo.img} nbFriends={plantInfo.good.length} nbEnemies={plantInfo.bad.length} onSelectedPlant={that.props.onSelectedPlant} />;
     });
   },
   render: function() {
@@ -124,7 +126,7 @@ var Plant = React.createClass({
         <div className="double-top circle super-small-circle bg-white"></div>
         <div className="double-bottom">
           <div className="circle small-circle">
-            <img src="assets/oignon.svg" />
+            <img src={this.props.img} />
           </div>
           <h4 className="text-center"> {this.props.name} </h4>
         </div>
@@ -133,8 +135,8 @@ var Plant = React.createClass({
             <div className="friends-icon float-left">
               <img src="assets/friends.svg"/>
             </div>
-            <p className="float-left">12</p>
-            <p className="float-right">6</p>
+            <p className="float-left">{this.props.nbFriends}</p>
+            <p className="float-right">{this.props.nbEnemies}</p>
             <div className="ennemies-icon float-right">
               <img src="assets/ennemies.svg"/>
             </div>
