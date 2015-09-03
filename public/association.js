@@ -161,7 +161,7 @@ window.plants = [
     "bad": []
   },
   {
-    "name": "Maïs",
+    "name": "Mais",
     "img": "assets/mais.svg",
     "desc": "blabla bla blabla blalblalbla loiuytre dezfrgtyu ",
     "good": ["Concombre", "Courge", "Potiron", "Courgette", "Laitue", "Tomate"],
