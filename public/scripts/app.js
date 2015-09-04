@@ -35,7 +35,7 @@ var AssociationBox = React.createClass({
         <div className="header-box">
           <header>
             <div className="container form">
-              <SearchBar plantsNames={this.props.data.map('name')} onSelectedPlant={this.displayAssociatedPlant} />
+              <SearchBar plantsNames={this.props.data.map('name')} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
             </div>
           </header>
         </div>
@@ -62,7 +62,21 @@ var SearchBar = React.createClass({
     },
     {
       name: 'vegetables',
-      source: substringMatcher(this.props.plantsNames)
+      source: substringMatcher(this.props.plantsNames),
+      templates: {
+        empty: [
+          '<div class="empty-message">',
+          'unable to find any Best Picture winners that match the current query',
+          '</div>'
+        ].join('\n'),
+        suggestion: function(data) {
+          var vegeSuggestion = that.props.data.find({name: data});
+          return  '<div>'+data+
+                  '<div class="float-right"><img src="assets/friends.svg"  class="suggestions"/>'+vegeSuggestion.good.length+'</div>'+
+                  '<div class="float-right"><img src="assets/ennemies.svg" class="suggestions"/>'+vegeSuggestion.bad.length+'</div>'+
+                  '</div>';
+        }
+      }
     })
     .on('typeahead:select', function(event, plantName) {
       that.props.onSelectedPlant(plantName);

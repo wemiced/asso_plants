@@ -1874,3 +1874,8 @@ footer {
     color: #3b2714;
     margin: 0;
     padding: 0; }
+
+.tt-suggestion.tt-selectable img {
+  float: right;
+  width: 32px;
+  height: auto; }
