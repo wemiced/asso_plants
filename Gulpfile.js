@@ -5,10 +5,6 @@
   var sass          = require('gulp-sass');
   var livereload    = require('gulp-livereload');
   var svgmin        = require('gulp-svgmin');
-  var gzip          = require('gulp-gzip');
-  var concat        = require('gulp-concat');
-  var rename        = require('gulp-rename');
-  var rimraf        = require('gulp-rimraf'); 
   var runSequence   = require('gulp-run-sequence');
 
 /* ## Paths
@@ -30,7 +26,7 @@
   var displayError = function(error) {
 
       var errorString = '[' + error.plugin + ']';
-      errorString += ' ' + error.message.replace("\n",''); 
+      errorString += ' ' + error.message.replace("\n",'');
 
       if(error.fileName)
           errorString += ' in ' + error.fileName;
@@ -71,7 +67,7 @@
 /* ## Watch
 ================================================== */
 
-  gulp.task('watch', function() { 
+  gulp.task('watch', function() {
     livereload({ start: true });
     livereload.listen();
     gulp.watch(['./src/styles/**/*.scss'], ['build-dev']);
