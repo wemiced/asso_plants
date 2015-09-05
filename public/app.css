@@ -1746,7 +1746,7 @@ header {
   position: fixed;
   background-color: #95c5db;
   width: 100%;
-  height: 50px;
+  height: 45px;
   top: 0; }
   header h4 {
     font-family: "Open Sans", sans-serif; }
@@ -1818,11 +1818,10 @@ header {
     color: #8c8c8c; }
 
 .plant-box {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
   position: relative;
+  width: 47%;
+  float: left;
+  margin-left: 3%;
   margin-bottom: 15px;
   background-color: #fafafa;
   cursor: pointer;
@@ -1832,6 +1831,10 @@ header {
   -moz-border-radius-topright: 15px;
   -webkit-border-top-right-radius: 15px;
   border-top-right-radius: 15px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
   -webkit-transition: background-color 200ms ease-in-out;
   -moz-transition: background-color 200ms ease-in-out;
   -o-transition: background-color 200ms ease-in-out;

@@ -1,4 +1,22 @@
+
 var AssociationBox = React.createClass({
+  componentDidMount: function() {
+      window.addEventListener('scroll', this.handleScroll);
+      this.scrollTop = 0;
+      console.log(1);
+  },
+  componentWillUnmount: function() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  handleScroll: function(event) {
+    this.scrollTop = event.srcElement.body.scrollTop;
+    var cx = React.addons.classSet;
+    var classes = cx({
+        'visible': true,
+    })
+    console.log((this.scrollTop >= 50 ? true : false));
+    console.log(  event.srcElement.body.scrollTop + 'px');
+  },
   getInitialState: function() {
     return {selectedPlantName: 'Tomate'};
   },
@@ -8,6 +26,10 @@ var AssociationBox = React.createClass({
   render: function() {
     var associatedPlants;
     var descriptionAssociatedPlants;
+    var cx = React.addons.classSet;
+    var classes = cx({
+        'visible': true,
+    });
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
       var data = this.props.data;
@@ -33,7 +55,7 @@ var AssociationBox = React.createClass({
     return (
       <div className='associationBox'>
         <div className="header-box">
-          <header>
+          <header className={classes}>
             <div className="container form">
               <SearchBar plantsNames={this.props.data.map('name')} onSelectedPlant={this.displayAssociatedPlant} />
             </div>
@@ -122,7 +144,7 @@ var Plant = React.createClass({
   },
   render: function() {
     return (
-      <div className='plant-box six columns fly-in' onClick={this.selectPlant}>
+      <div className='plant-box fly-in' onClick={this.selectPlant}>
         <div className="double-top circle super-small-circle bg-white"></div>
         <div className="double-bottom">
           <div className="circle small-circle">

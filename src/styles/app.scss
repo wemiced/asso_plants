@@ -68,7 +68,7 @@ header {
 	position:fixed;
 	background-color: $color-light;
 	width:100%;
-	height:50px;
+	height:45px;
 	top:0;
 	h4 {
 		font-family: "Open Sans", sans-serif;
@@ -139,7 +139,7 @@ header {
 }
 
 .associated-box {
-	margin-top: 50px;
+	margin-top: 45px;
 	h1 {
 		font-family: 'Pt Serif', serif;
 		color: $color-grey-50;
@@ -150,8 +150,10 @@ header {
 
 
 .plant-box {
-	@include unselectable();
 	position:relative;
+	width: 47%;
+	float:left;
+	margin-left:3%;
 	margin-bottom: 15px;
 	background-color: rgb(250, 250, 250);
 	cursor:pointer;
@@ -161,6 +163,7 @@ header {
 	-moz-border-radius-topright:15px;
 	-webkit-border-top-right-radius:15px;
 	border-top-right-radius:15px;
+	@include unselectable();
 	@include transition(background-color, 200ms, ease-in-out);
 	div:nth-child(2) {
 		padding: 15px;

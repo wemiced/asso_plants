@@ -148,7 +148,7 @@ window.plants = [
   },
   {
     "name": "Laitue",
-    "img": "assets/laitue.svg",
+    "img": "assets/<.svg",
     "desc": "blabla bla blabla blalblalbla  dazza dqs qsqdq zdqzdz",
     "good": ["Ail", "Artichaut", "Asperge", "Carotte", "Chou", "Courge", "Potiron", "Courgette", "Mais", "Navet", "Oignon", "Poireau", "Radis"],
     "bad": []
