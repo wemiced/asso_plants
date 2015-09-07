@@ -1,6 +1,8 @@
 window.plants = [
   {
     "name": "Ail",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/ail.svg",
     "desc": "blabla bla blabla blalblalbla sqd qd qsdq dqs dqs",
     "good": ["Asperge", "Betterave", "Concombre", "Fraisier", "Laitue", "Tomate"],
@@ -8,6 +10,8 @@ window.plants = [
   },
   {
     "name": "Aneth",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/aneth.svg",
     "desc": "blabla bla blabla blalblalbla eazeaz gfdfg ddfgdfg",
     "good": [],
@@ -15,6 +19,8 @@ window.plants = [
   },
   {
     "name": "Artichaut",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/artichaut.svg",
     "desc": "blabla bla blabla blalblalbla sqd qdsaze yrtyhgf ",
     "good": ["Haricot", "Laitue", "Oignon", "Pois", "Radis"],
@@ -22,6 +28,8 @@ window.plants = [
   },
   {
     "name": "Asperge",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/asperge.svg",
     "desc": "blabla bla blabla blalblalbla iopikjhjhghjg g jg fh d fgd ",
     "good": ["Ail", "Chou", "Haricot", "Laitue", "Navet", "Oignon", "Persil", "Pois", "Radis", "Tomate"],
@@ -29,6 +37,8 @@ window.plants = [
   },
   {
     "name": "Aubergine",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/aubergine.svg",
     "desc": "blabla bla blabla blalblalbla azea zeaza eaz ea",
     "good": ["Haricot"],
@@ -36,6 +46,8 @@ window.plants = [
   },
   {
     "name": "Bette",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/bette.svg",
     "desc": "blabla bla blabla blalblalbla favav  vavava ",
     "good": ["Carotte"],
@@ -43,6 +55,8 @@ window.plants = [
   },
   {
     "name": "Betterave",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/betterave.svg",
     "desc": "blabla bla blabla blalblalbla wxcxx regt r hgtr",
     "good": ["Ail", "Chou", "Concombre", "Haricot", "Navet", "Oignon", "Pois"],
@@ -50,6 +64,8 @@ window.plants = [
   },
   {
     "name": "Carotte",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/carotte.svg",
     "desc": "blabla bla blabla blalblalbla dqs hfhytr iyuhjgfds",
     "good": ["Bette", "Ciboulette", "Haricot", "Laitue", "Navet", "Oignon", "Poireau", "Pois", "Radis", "Tomate"],
@@ -57,6 +73,8 @@ window.plants = [
   },
   {
     "name": "Céleri",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/celeri.svg",
     "desc": "blabla bla blabla blalblalbla bcnvxxc qsqd aqdzefdss dqq",
     "good": ["Chou", "Poireau", "Radis", "Tomate"],
@@ -64,6 +82,8 @@ window.plants = [
   },
   {
     "name": "Cerfeuil",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/cerfeuil.svg",
     "desc": "blabla bla blabla blalblalbla uiyj tyjytj ukfdsqs",
     "good": ["Radis"],
@@ -71,6 +91,8 @@ window.plants = [
   },
   {
     "name": "Chou",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/chou.svg",
     "desc": "blabla bla blabla blalblalbla loikjhg jhjghlkhj xwcxwvx",
     "good": ["Asperge", "Betterave", "Cerfeuil", "Concombre", "Epinard", "Haricot", "Laitue", "Pois", "Pomme de terre", "Tomate"],
@@ -78,6 +100,8 @@ window.plants = [
   },
   {
     "name": "Ciboulette",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/ciboulette.svg",
     "desc": "blabla bla blabla blalblalbla azedsqxcvx dfzefzdsqd adzad",
     "good": ["Carotte"],
@@ -85,6 +109,8 @@ window.plants = [
   },
   {
     "name": "Concombre",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/concombre.svg",
     "desc": "blabla bla blabla blalblalbla ilkiyujyrt ytree sqdsdqd",
     "good": ["Ail", "Betterave", "Chou", "Haricot", "Mais", "Oignon", "Pois", "Radis"],
@@ -92,6 +118,8 @@ window.plants = [
   },
   {
     "name": "Courge",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/courge.svg",
     "desc": "blabla bla blabla blalblalbla d ad azdza dsqdqfdsfs qqdsqds az",
     "good": ["Haricot", "Laitue", "Mais", "Navet"],
@@ -99,6 +127,8 @@ window.plants = [
   },
   {
     "name": "Potiron",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/potiron.svg",
     "desc": "blabla bla blabla blalblalbla moilukyj jyuujtrtfdsqqd ",
     "good": ["Haricot", "Laitue", "Mais", "Navet"],
@@ -106,6 +136,8 @@ window.plants = [
   },
   {
     "name": "Courgette",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/courgette.svg",
     "desc": "blabla bla blabla blalblalbla  azeds ds sdzeferyiytfdscsdf",
     "good": ["Haricot", "Laitue", "Mais", "Navet"],
@@ -113,6 +145,8 @@ window.plants = [
   },
   {
     "name": "Epinard",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/epinard.svg",
     "desc": "blabla bla blabla blalblalbla azedsfdsf fsd sdfefefz",
     "good": ["Chou", "Fraisier", "Haricot", "Oignon", "Poireau", "Pois", "Radis"],
@@ -120,6 +154,8 @@ window.plants = [
   },
   {
     "name": "Fenouil",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/fenouil.svg",
     "desc": "blabla bla blabla blalblalbla liujyth tjyrezds",
     "good": [],
@@ -127,6 +163,8 @@ window.plants = [
   },
   {
     "name": "Feve",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/feve.svg",
     "desc": "blabla bla blabla blalblalbla olikuyhilkujyt rerzfe",
     "good": ["Pomme de terre"],
@@ -134,6 +172,8 @@ window.plants = [
   },
   {
     "name": "Fraisier",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/fraisier.svg",
     "desc": "blabla bla blabla blalblalbla  fezfdsffds iuoulkyursd dsdq",
     "good": ["Ail", "Oignon"],
@@ -141,6 +181,8 @@ window.plants = [
   },
   {
     "name": "Haricot",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/haricot.svg",
     "desc": "blabla bla blabla blalblalbla  dzadsq fs gfdgdsd sqdqd qsd",
     "good": ["Artichaut", "Asperge", "Aubergine", "Betterave", "Carotte", "Chou", "Concombre", "Courge", "Potiron", "Courgette", "Epinard", "Poireau", "Pomme de terre"],
@@ -148,20 +190,26 @@ window.plants = [
   },
   {
     "name": "Laitue",
-    "img": "assets/<.svg",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
+    "img": "assets/laitue.svg",
     "desc": "blabla bla blabla blalblalbla  dazza dqs qsqdq zdqzdz",
     "good": ["Ail", "Artichaut", "Asperge", "Carotte", "Chou", "Courge", "Potiron", "Courgette", "Mais", "Navet", "Oignon", "Poireau", "Radis"],
     "bad": []
   },
   {
     "name": "Mache",
-    "img": "assets/mache.svg",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
+    "img": "assets/laitue.svg",
     "desc": "blabla bla blabla blalblalbla  zqdqzd zqdqz dqzdq zqd",
     "good": ["Poireau", "Tomate"],
     "bad": []
   },
   {
     "name": "Mais",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/mais.svg",
     "desc": "blabla bla blabla blalblalbla loiuytre dezfrgtyu ",
     "good": ["Concombre", "Courge", "Potiron", "Courgette", "Laitue", "Tomate"],
@@ -169,6 +217,8 @@ window.plants = [
   },
   {
     "name": "Navet",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/navet.svg",
     "desc": "blabla bla blabla blalblalbla oiuyt ezdsqdqsdza",
     "good": ["Asperge", "Betterave", "Carotte", "Courge", "Potiron", "Courgette", "Laitue", "Pois"],
@@ -176,6 +226,8 @@ window.plants = [
   },
   {
     "name": "Oignon",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/oignon.svg",
     "desc": "blabla bla blabla blalblalbla zefdzf fsd fefdsqzdzwdf",
     "good": ["Artichaut", "Asperge", "Betterave", "Carotte", "Concombre", "Epinard", "Fraisier", "Laitue", "Poireau", "Tomate"],
@@ -183,6 +235,8 @@ window.plants = [
   },
   {
     "name": "Persil",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/persil.svg",
     "desc": "blabla bla blabla blalblalbla dfsd sdfds gftrfeazzedsasqd",
     "good": ["Asperge", "Tomate"],
@@ -190,6 +244,8 @@ window.plants = [
   },
   {
     "name": "Poireau",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/poireau.svg",
     "desc": "blabla bla blabla blalblalbla dsq dqs dqsdzaefdrgfd ",
     "good": ["Carotte", "Céleri", "Epinard", "Laitue", "Mache", "Oignon", "Tomate"],
@@ -197,6 +253,8 @@ window.plants = [
   },
   {
     "name": "Pois",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/pois.svg",
     "desc": "blabla bla blabla blalblalbla dza sqd fsgdfhgfdf dsqdqsd",
     "good": ["Artichaut", "Asperge", "Betterave", "Carotte", "Chou", "Concombre", "Epinard", "Navet", "Pomme de terre", "Radis"],
@@ -204,6 +262,8 @@ window.plants = [
   },
   {
     "name": "Pomme de terre",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/patate.svg",
     "desc": "blabla bla blabla blalblalbla sqd sqgtrytrsdsqf ",
     "good": ["Chou", "Feve", "Haricot", "Pois", "Radis", "Raifort"],
@@ -211,6 +271,8 @@ window.plants = [
   },
   {
     "name": "Radis",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/radis.svg",
     "desc": "blabla bla blabla blalblalbla dzqdsqfgt yhfgtdsscd",
     "good": ["Artichaut", "Asperge", "Carotte", "Céleri", "Cerfeuil", "Concombre", "Epinard", "Laitue", "Pois", "Pomme de terre", "Tomate"],
@@ -218,6 +280,8 @@ window.plants = [
   },
   {
     "name": "Raifort",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/raifort.svg",
     "desc": "blabla bla blabla blalblalbla dz qdsqd qgfhfds sdgferdgdsf",
     "good": ["Pomme de terre"],
@@ -225,8 +289,10 @@ window.plants = [
   },
   {
     "name": "Tomate",
+    "ground": ["argile", "sable", "normal"],
+    "season" : "",
     "img": "assets/tomate.svg",
-    "desc": "blabla bla blabla blalblalbla dqqesgyugf gdfsqfgrhfd ",
+    "desc": "La tomate (Solanum lycopersicum L.) est une espèce de plantes herbacées de la famille des Solanacées, originaire du Nord-Ouest de l'Amérique du Sud, largement cultivée pour son fruit.",
     "good": ["Ail", "Asperge", "Carotte", "Céleri", "Chou", "Mache", "Mais", "Oignon", "Persil", "Poireau", "Radis"],
     "bad": ["Concombre", "Fenouil", "Haricot", "Pomme de terre"]
   }

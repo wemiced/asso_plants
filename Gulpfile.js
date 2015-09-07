@@ -46,7 +46,8 @@
       .on('error', function(err){
           displayError(err);
       })
-      .pipe(gulp.dest(paths.styles.dest));
+      .pipe(gulp.dest(paths.styles.dest))
+      .pipe(livereload());
   });
 
 /* ## SVG Minify
@@ -64,13 +65,19 @@
         .pipe(gulp.dest('./public/assets/'));
   });
 
+
+  gulp.task('livereload', function() {
+    return  gulp.src('').pipe(livereload());
+  });
+
+
 /* ## Watch
 ================================================== */
 
   gulp.task('watch', function() {
     livereload({ start: true });
     livereload.listen();
-    gulp.watch(['./src/styles/**/*.scss'], ['build-dev']);
+    gulp.watch(['./src/styles/**/*.scss'], ['sass']);
   });
 
 /* ## Run sequences

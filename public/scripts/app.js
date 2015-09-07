@@ -3,21 +3,20 @@ var AssociationBox = React.createClass({
   componentDidMount: function() {
       window.addEventListener('scroll', this.handleScroll);
       this.scrollTop = 0;
-      console.log(1);
   },
   componentWillUnmount: function() {
     window.removeEventListener('scroll', this.handleScroll);
   },
   handleScroll: function(event) {
     this.scrollTop = event.srcElement.body.scrollTop;
-    var cx = React.addons.classSet;
-    var classes = cx({
-        'visible': true,
-    })
-    console.log((this.scrollTop >= 50 ? true : false));
-    console.log(  event.srcElement.body.scrollTop + 'px');
+    if (this.scrollTop >= 150)
+    {
+      $('header').removeClass('open');
+      $('.associated-box').removeClass('open');
+      $('.SearchBar').removeClass('open');
+    }
   },
-  getInitialState: function() {
+  getInitialState: function() { 
     return {selectedPlantName: 'Tomate'};
   },
   displayAssociatedPlant: function(plantName) {
@@ -26,16 +25,12 @@ var AssociationBox = React.createClass({
   render: function() {
     var associatedPlants;
     var descriptionAssociatedPlants;
-    var cx = React.addons.classSet;
-    var classes = cx({
-        'visible': true,
-    });
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
       var data = this.props.data;
       associatedPlants = <AssociatedPlants good={plant.good} bad={plant.bad} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
       descriptionAssociatedPlants = <div className="fly-in">
-                                      <section className="bg-grey associated-box">
+                                      <section className="bg-grey open associated-box">
                                         <div className="container">
                                           <div className="three columns">
                                             <div className="circle big-circle">
@@ -55,7 +50,9 @@ var AssociationBox = React.createClass({
     return (
       <div className='associationBox'>
         <div className="header-box">
-          <header className={classes}>
+          <header className="open">
+            <h1 className="text-center text-white quad-top">Make love not war</h1>
+            <h4 className="text-center text-light-dark">Un tableau associatif des plantes de jardin</h4>
             <div className="container form">
               <SearchBar plantsNames={this.props.data.map('name')} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
             </div>
@@ -88,17 +85,24 @@ var SearchBar = React.createClass({
       templates: {
         empty: [
           '<div class="empty-message">',
-          'unable to find any Best Picture winners that match the current query',
+          'Désolé, aucun résultat pour votre recherche :-(',
           '</div>'
         ].join('\n'),
         suggestion: function(data) {
           var vegeSuggestion = that.props.data.find({name: data});
-          return  '<div>'+data+
-                  '<div class="float-right"><img src="assets/friends.svg"  class="suggestions"/>'+vegeSuggestion.good.length+'</div>'+
-                  '<div class="float-right"><img src="assets/ennemies.svg" class="suggestions"/>'+vegeSuggestion.bad.length+'</div>'+
-                  '</div>';
+          return  '<div>'
+                +   data
+                +   '<div class="float-right">'
+                +      '<span>' + vegeSuggestion.good.length + '</span>' 
+                +   '  <img src="assets/friends.svg"  class="suggestions"/>'
+                +   '</div>'
+                +   '<div class="float-right">'
+                +      '<span>' + vegeSuggestion.bad.length + '</span>' 
+                +   '  <img src="assets/ennemies.svg" class="suggestions"/>'
+                +   '</div>'
+                + '</div>';
         }
-      }
+      } 
     })
     .on('typeahead:select', function(event, plantName) {
       that.props.onSelectedPlant(plantName);
@@ -107,7 +111,7 @@ var SearchBar = React.createClass({
   },
   render: function() {
     return (
-      <div className='SearchBar'>
+      <div className='SearchBar open'>
         <input type="text" name='vegetables' id='typeahead' placeholder="Rechercher une plante" ref="plantName" />
         <div className="search-icon">
           <img src="assets/search.svg"/>
@@ -134,7 +138,7 @@ var AssociatedPlants = React.createClass({
             <div className="quad-bottom friends-icon float-left">
               <img src="assets/friends.svg"/>
             </div>
-            <h3 className="quad-bottom float-left i">Amis</h3>
+            <h3 className="quad-bottom float-left i">Amis <span className="text-grey-20">({this.displayPlantList(this.props.good).length})</span></h3>
             <div className="clearfix"></div>
             {this.displayPlantList(this.props.good)}
           </div>
@@ -142,7 +146,7 @@ var AssociatedPlants = React.createClass({
             <div className="quad-bottom ennemies-icon float-left">
               <img src="assets/ennemies.svg"/>
             </div>
-            <h3 className="quad-bottom float-left i">Ennemies</h3>
+            <h3 className="quad-bottom float-left i">Ennemies <span className="text-grey-20">({this.displayPlantList(this.props.bad).length})</span></h3>
             <div className="clearfix"></div>
             {this.displayPlantList(this.props.bad)}
           </div>
