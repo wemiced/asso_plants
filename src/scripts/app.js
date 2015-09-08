@@ -16,11 +16,17 @@ var AssociationBox = React.createClass({
       $('.SearchBar').removeClass('open');
     }
   },
-  getInitialState: function() { 
-    return {selectedPlantName: 'Tomate'};
+  getInitialState: function() {
+    return {
+      oldSelectedPlantName: '',
+      selectedPlantName: 'Tomate'
+    };
   },
   displayAssociatedPlant: function(plantName) {
-    this.setState({selectedPlantName: plantName});
+    this.setState({
+      oldSelectedPlantName: this.props.data.find({name: this.state.selectedPlantName}),
+      selectedPlantName: plantName
+    });
   },
   render: function() {
     var associatedPlants;
@@ -28,7 +34,7 @@ var AssociationBox = React.createClass({
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
       var data = this.props.data;
-      associatedPlants = <AssociatedPlants good={plant.good} bad={plant.bad} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
+      associatedPlants = <AssociatedPlants oldPlant={this.state.oldSelectedPlantName} plant={plant} good={plant.good} bad={plant.bad} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
       descriptionAssociatedPlants = <div className="fly-in">
                                       <section className="bg-grey open associated-box">
                                         <div className="container">
@@ -93,16 +99,16 @@ var SearchBar = React.createClass({
           return  '<div>'
                 +   data
                 +   '<div class="float-right">'
-                +      '<span>' + vegeSuggestion.good.length + '</span>' 
+                +      '<span>' + vegeSuggestion.good.length + '</span>'
                 +   '  <img src="/assets/svg/friends.svg"  class="suggestions"/>'
                 +   '</div>'
                 +   '<div class="float-right">'
-                +      '<span>' + vegeSuggestion.bad.length + '</span>' 
+                +      '<span>' + vegeSuggestion.bad.length + '</span>'
                 +   '  <img src="/assets/svg/ennemies.svg" class="suggestions"/>'
                 +   '</div>'
                 + '</div>';
         }
-      } 
+      }
     })
     .on('typeahead:select', function(event, plantName) {
       that.props.onSelectedPlant(plantName);
@@ -121,7 +127,7 @@ var SearchBar = React.createClass({
     );
   }
 });
- 
+
 var AssociatedPlants = React.createClass({
   displayPlantList: function(plants) {
     var that = this;

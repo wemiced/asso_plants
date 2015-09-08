@@ -1,3 +1,8 @@
+/*
+  http://www.fermebedardblouin.com/a-chaque-type-sol-ses-legumes-conseil,9,19,42
+*/
+window.ground_type = ["argileux", "sableux", "calcaire", "humifère"]
+
 window.plants = [
   {
     "name": "Ail",
