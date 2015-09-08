@@ -54,10 +54,7 @@ gulp.task('serve', function() {
 
     connect.server({
         port:8000,
-        root: './public',
-        livereload: {
-            port: 21730
-        }
+        root: './public'
     });
 
 });
