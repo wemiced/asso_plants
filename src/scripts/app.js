@@ -34,7 +34,7 @@ var AssociationBox = React.createClass({
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
       var data = this.props.data;
-      associatedPlants = <AssociatedPlants oldPlant={this.state.oldSelectedPlantName} plant={plant} good={plant.good} bad={plant.bad} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
+      associatedPlants = <AssociatedPlants ground={plant.ground} oldPlant={this.state.oldSelectedPlantName} plant={plant} good={plant.good} bad={plant.bad} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
       descriptionAssociatedPlants = <div className="fly-in">
                                       <section className="bg-grey open associated-box">
                                         <div className="container">
@@ -47,6 +47,7 @@ var AssociationBox = React.createClass({
                                             <h1 className="float-left fly-in b i">{this.state.selectedPlantName}</h1>
                                             <hr className="clearfix"/>
                                             <p className="justify"> {plant.desc} </p>
+                                            {plant.ground}
                                           </div>
                                         </div>
                                       </section>
@@ -70,7 +71,7 @@ var AssociationBox = React.createClass({
         </section>
         <div className="footer-illu double-top"></div>
         <footer>
-            <h4 className="text-center text-dark-dark">Made with love</h4>
+            <h4 className="text-center text-dark-dark b i">Made with love</h4>
         </footer>
       </div>
     );
@@ -97,14 +98,14 @@ var SearchBar = React.createClass({
         suggestion: function(data) {
           var vegeSuggestion = that.props.data.find({name: data});
           return  '<div>'
-                +   data
-                +   '<div class="float-right">'
-                +      '<span>' + vegeSuggestion.good.length + '</span>'
-                +   '  <img src="/assets/svg/friends.svg"  class="suggestions"/>'
-                +   '</div>'
+                +   '<span class="b i">' + data + '</span>'
                 +   '<div class="float-right">'
                 +      '<span>' + vegeSuggestion.bad.length + '</span>'
                 +   '  <img src="/assets/svg/ennemies.svg" class="suggestions"/>'
+                +   '</div>'
+                +   '<div class="float-right">'
+                +      '<span>' + vegeSuggestion.good.length + '</span>' 
+                +   '  <img src="/assets/svg/friends.svg"  class="suggestions"/>'
                 +   '</div>'
                 + '</div>';
         }

@@ -18,6 +18,9 @@
 
   var paths = {
 
+      files: {
+        watch: ['./src/assets/fonts/*', './src/index.html', './src/datas/association.js', './src/assets/png/*', './src/scripts/app.js']
+      },
       styles: {
           src: './src',
           files:  './src/styles/*.scss',
@@ -26,7 +29,8 @@
       },
       jsminifier: {
           files: './src/vendor/*.js',
-          dest: './src/vendor/min/'
+          dest: './src/vendor/min/',
+          watch: './src/vendor/*.js'
       },
       jsconcat : {
         files: './src/vendor/min/*.js',
@@ -34,16 +38,22 @@
         dest: './public/vendor/'
       },
       svgmin : {
-        file: './src/assets/svg/*.svg',
-        dest: './public/assets/svg/'
+        files: './src/assets/svg/*.svg',
+        dest: './public/assets/svg/',
+        watch: './src/assets/svg/*.svg',
+        clean: './public/assets/svg/*.svg'
       }
   }
 
 /* ## clean
 ================================================== */
 
-  gulp.task('clean', function () {
-    return del(['public/**'] );
+  gulp.task('clean:all', function (cb) {
+    return del(['./public'], cb );
+  });
+
+  gulp.task('clean:svg', function (cb) {
+    return del([paths.svgmin.clean], cb );
   });
 
 
@@ -92,7 +102,7 @@ gulp.task('serve', function() {
 ================================================== */
 
   gulp.task('svgmin', function() {
-    return gulp.src(paths.svgmin.file)
+    return gulp.src(paths.svgmin.files)
         .pipe(svgmin({
             plugins: [{
                 removeDoctype: false
@@ -132,9 +142,9 @@ gulp.task('serve', function() {
     livereload({ start: true });
     livereload.listen();
     gulp.watch([paths.styles.watch], ['sass']);
-    gulp.watch(['./src/assets/fonts/*', './src/index.html', './src/datas/association.js', './src/assets/png/*', './src/scripts/app.js'], ['files']);
-    gulp.watch(['./src/assets/svg/*.svg'], ['svgmin']);
-    gulp.watch(['./src/vendor/*.js'], ['build-js']);
+    gulp.watch(paths.files.watch, ['files']);
+    gulp.watch([paths.svgmin.watch], ['clean:svg', 'svgmin']);
+    gulp.watch([paths.jsminifier.watch], ['build-js']);
 
   });
 
@@ -167,18 +177,13 @@ gulp.task('serve', function() {
     runSequence('js-minify', 'concat', cb);
   });
 
-  gulp.task('build-dev', function(cb) {
-    runSequence(['clean', 'sass', 'js-minify', 'files'], 'concat', cb);
-  });
-
   gulp.task('build-prod', function(cb) {
-    runSequence(['js-minify', 'svgmin', 'files'], 'sass', 'concat', cb);
+    runSequence('clean:all', ['js-minify', 'svgmin', 'files'], 'sass', 'concat', cb);
   });
 
 /* ## Options
 ================================================== */
   gulp.task('default', ['watch', 'files', 'serve']);
-  gulp.task('clean', ['clean']);
-  gulp.task('dev'), ['build-dev'];
+  gulp.task('clean', ['clean:all']);
   gulp.task('production', ['build-prod']);
 
