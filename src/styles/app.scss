@@ -1,4 +1,5 @@
 @import "core/normalize";
+@import "core/icon";
 @import "core/tools";
 @import "core/colors";
 @import "core/media";
@@ -36,24 +37,25 @@ img {
 	margin: 5px 25px 25px 25px;
 	width: 25px;
 	height:25px;
+	color:$color-grey-20;
 }
 
 .triangle-illu {
-	background-image: url('assets/triangle.svg');
+	background-image: url('/assets/svg/triangle.svg');
 	width: 50px;
 	height:30px;
 	margin: 0 auto;
 }
 
 .header-illu {
-	background-image: url('assets/header_illu.svg');
+	background-image: url('/assets/svg/header_illu.svg');
 	width: 100px;
 	height:110px;
 	margin: -100px auto 0 auto;
 }
 
 .footer-illu {
-	background-image: url('assets/footer_illu.svg');
+	background-image: url('/assets/svg/footer_illu.svg');
 	width: 70px;
 	height:60px;
 	margin: 0 auto;
