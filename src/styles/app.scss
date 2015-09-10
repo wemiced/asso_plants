@@ -106,7 +106,7 @@ header {
 		width: 100%;
 		input:nth-child(1) {
 			width: 100%;
-			padding:30px;
+			padding:20px;
 			-moz-border-radius-bottomleft:0px;
 			-webkit-border-bottom-left-radius:0px;
 			border-bottom-left-radius:0px;
@@ -117,11 +117,12 @@ header {
 			border-top-left-radius:6px;
 			-moz-border-radius-topright:6px;
 			-webkit-border-top-right-radius:6px;
+			height: auto;
 		}
 		input:nth-child(2) {
 			font-style: italic;
 			width: 100%;
-			padding:30px;
+			padding:20px;
 			-moz-border-radius-bottomleft:0px;
 			-webkit-border-bottom-left-radius:0px;
 			border-bottom-left-radius:0px;
@@ -132,6 +133,7 @@ header {
 			border-top-left-radius:6px;
 			-moz-border-radius-topright:6px;
 			-webkit-border-top-right-radius:6px;
+			height: auto;
 		}
 	}
 	input {
