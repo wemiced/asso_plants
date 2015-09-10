@@ -11,18 +11,27 @@
   var del           = require('del');
   var rename        = require('gulp-rename');
   var connect       = require('gulp-connect');
-
+  var gzip          = require('gulp-gzip');
+  var open          = require('gulp-open');
+  var inject        = require('gulp-inject');
+  var minifyCss     = require('gulp-minify-css');
+  var imagemin      = require('gulp-imagemin');
+  var pngquant      = require('imagemin-pngquant');
 
 /* ## Paths
 ================================================== */
 
   var paths = {
 
+      serve : {
+        port: '8000',
+        root: './public'
+      },
+
       files: {
-        watch: ['./src/assets/fonts/*', './src/index.html', './src/datas/association.js', './src/assets/png/*', './src/scripts/app.js']
+        watch: ['./src/assets/fonts/*', './src/index.html', './src/datas/association.js', './src/scripts/app.js']
       },
       styles: {
-          src: './src',
           files:  './src/styles/*.scss',
           dest: './public/styles/',
           watch: './src/styles/**/*.scss'
@@ -37,11 +46,11 @@
         filename: 'vendor.min.js',
         dest: './public/vendor/'
       },
-      svgmin : {
-        files: './src/assets/svg/*.svg',
-        dest: './public/assets/svg/',
-        watch: './src/assets/svg/*.svg',
-        clean: './public/assets/svg/*.svg'
+      assets : {
+        files: ['./src/assets/**/*{png,svg}','!./src/assets/fonts/'],
+        dest: './public/assets/',
+        watch: './src/assets/**/*',
+        clean: './public/assets/**/*'
       }
   }
 
@@ -63,9 +72,19 @@
 gulp.task('serve', function() {
 
     connect.server({
-        port:8000,
-        root: './public'
+        port:paths.serve.port,
+        root: paths.serve.root
     });
+
+});
+
+/* ## open
+================================================== */
+
+gulp.task('open', function(){
+
+  gulp.src('')
+  .pipe(open({uri: 'http://localhost:' + paths.serve.port}));
 
 });
 
@@ -98,22 +117,18 @@ gulp.task('serve', function() {
       .pipe(livereload());
   });
 
-/* ## SVG Minify
+/* ## Image min
 ================================================== */
 
-  gulp.task('svgmin', function() {
-    return gulp.src(paths.svgmin.files)
-        .pipe(svgmin({
-            plugins: [{
-                removeDoctype: false
-            }, {
-                removeComments: false
-            }]
-        }))
-        .pipe(gulp.dest(paths.svgmin.dest))
-        .pipe(livereload());
+  gulp.task('imagemin', function () {
+      return gulp.src(paths.assets.files)
+          .pipe(imagemin({
+              progressive: true,
+              svgoPlugins: [{removeViewBox: false}],
+              use: [pngquant()]
+          }))
+          .pipe(gulp.dest(paths.assets.dest));
   });
-
 
 /* ## concat
 ================================================== */
@@ -143,7 +158,7 @@ gulp.task('serve', function() {
     livereload.listen();
     gulp.watch([paths.styles.watch], ['sass']);
     gulp.watch(paths.files.watch, ['files']);
-    gulp.watch([paths.svgmin.watch], ['clean:svg', 'svgmin']);
+    gulp.watch([paths.assets.watch], ['imagemin', 'files']);
     gulp.watch([paths.jsminifier.watch], ['build-js']);
 
   });
@@ -162,11 +177,9 @@ gulp.task('serve', function() {
       .pipe(gulp.dest('./public/datas/'));
 
       gulp.src('./src/scripts/app.js')
-      .pipe(gulp.dest('./public/scripts/'));
-
-      gulp.src('./src/assets/png/*.png')
-      .pipe(gulp.dest('./public/assets/png'))
+      .pipe(gulp.dest('./public/scripts/'))
       .pipe(livereload());
+
       cb();
   });
 
@@ -178,12 +191,12 @@ gulp.task('serve', function() {
   });
 
   gulp.task('build-prod', function(cb) {
-    runSequence('clean:all', ['js-minify', 'svgmin', 'files'], 'sass', 'concat', cb);
+    runSequence('clean:all', ['js-minify', 'imagemin'], 'files', 'sass', 'concat', cb);
   });
 
 /* ## Options
 ================================================== */
-  gulp.task('default', ['watch', 'files', 'serve']);
+  gulp.task('default', ['watch', 'files', 'serve', 'open']);
   gulp.task('clean', ['clean:all']);
   gulp.task('production', ['build-prod']);
 

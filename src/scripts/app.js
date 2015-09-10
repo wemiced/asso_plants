@@ -13,7 +13,6 @@ var AssociationBox = React.createClass({
     {
       $('header').removeClass('open');
       $('.associated-box').removeClass('open');
-      $('.SearchBar').removeClass('open');
     }
   },
   getInitialState: function() {
@@ -56,9 +55,11 @@ var AssociationBox = React.createClass({
     }
     return (
       <div className='associationBox'>
-        <div className="header-box">
+        <div className="header-box quad-bottom">
           <header className="open">
-            <h1 className="text-center text-white quad-top b i">Make love not war</h1>
+            <div className="illu-handler quad-top">
+              <img src="/assets/svg/main_illu.svg"/>
+            </div>
             <h4 className="text-center text-light-dark">Un tableau associatif des plantes de jardin</h4>
             <div className="container form">
               <SearchBar plantsNames={this.props.data.map('name')} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
@@ -166,6 +167,7 @@ var AssociatedPlants = React.createClass({
 var Plant = React.createClass({
   selectPlant: function() {
     this.props.onSelectedPlant(this.props.name);
+    $('html, body').animate({scrollTop:0}, 400, "easeInOutCubic");
   },
   render: function() {
     return (
