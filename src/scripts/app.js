@@ -1,12 +1,16 @@
-$('body,html').bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function(e){
-    if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel") {
-        $("html,body").stop();
-    }
-});
 var AssociationBox = React.createClass({
+
+
   componentDidMount: function() {
       window.addEventListener('scroll', this.handleScroll);
       this.scrollTop = 0;
+  },
+  componentWillMount: function() {
+    $('body,html').bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function(e){
+      if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel") {
+        $("html,body").stop();
+      }
+    });
   },
   componentWillUnmount: function() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -109,7 +113,7 @@ var SearchBar = React.createClass({
                 +   '  <img src="/assets/svg/ennemies.svg" class="suggestions"/>'
                 +   '</div>'
                 +   '<div class="float-right">'
-                +      '<span>' + vegeSuggestion.good.length + '</span>' 
+                +      '<span>' + vegeSuggestion.good.length + '</span>'
                 +   '  <img src="/assets/svg/friends.svg"  class="suggestions"/>'
                 +   '</div>'
                 + '</div>';
