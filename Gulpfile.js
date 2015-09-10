@@ -160,7 +160,6 @@ gulp.task('open', function(){
     gulp.watch(paths.files.watch, ['files']);
     gulp.watch([paths.assets.watch], ['imagemin', 'files']);
     gulp.watch([paths.jsminifier.watch], ['build-js']);
-
   });
 
 /* ## files
