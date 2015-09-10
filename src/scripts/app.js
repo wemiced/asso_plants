@@ -1,4 +1,8 @@
-
+$('body,html').bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function(e){
+    if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel") {
+        $("html,body").stop();
+    }
+});
 var AssociationBox = React.createClass({
   componentDidMount: function() {
       window.addEventListener('scroll', this.handleScroll);
@@ -8,8 +12,8 @@ var AssociationBox = React.createClass({
     window.removeEventListener('scroll', this.handleScroll);
   },
   handleScroll: function(event) {
-    this.scrollTop = event.srcElement.body.scrollTop;
-    if (this.scrollTop >= 150)
+    //$('html, body').stop(true,false);
+    if ($(window).scrollTop() >= 150)
     {
       $('header').removeClass('open');
       $('.associated-box').removeClass('open');
