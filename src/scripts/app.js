@@ -8,8 +8,7 @@ var AssociationBox = React.createClass({
     window.removeEventListener('scroll', this.handleScroll);
   },
   handleScroll: function(event) {
-    this.scrollTop = event.srcElement.body.scrollTop;
-    if (this.scrollTop >= 150)
+    if ($(window).scrollTop() >= 150)
     {
       $('header').removeClass('open');
       $('.associated-box').removeClass('open');
