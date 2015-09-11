@@ -38,28 +38,11 @@ var AssociationBox = React.createClass({
   render: function() {
     var associatedPlants;
     var descriptionAssociatedPlants;
+    var plant;
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
       var data = this.props.data;
       associatedPlants = <AssociatedPlants ground={plant.ground} oldPlant={this.state.oldSelectedPlantName} plant={plant} good={plant.good} bad={plant.bad} data={this.props.data} onSelectedPlant={this.displayAssociatedPlant} />
-      descriptionAssociatedPlants = <div className="fly-in">
-                                      <section className="bg-grey open associated-box">
-                                        <div className="container">
-                                          <div className="three columns">
-                                            <div className="circle big-circle">
-                                              <img src={plant.img} />
-                                            </div>
-                                          </div>
-                                          <div className="nine columns">
-                                            <h1 className="float-left fly-in b i">{this.state.selectedPlantName}</h1>
-                                            <hr className="clearfix"/>
-                                            <p className="justify"> {plant.desc} </p>
-                                            {plant.ground}
-                                          </div>
-                                        </div>
-                                      </section>
-                                      <div className="triangle-illu"></div>
-                                    </div>
     }
     return (
       <div className='associationBox'>
@@ -74,7 +57,8 @@ var AssociationBox = React.createClass({
             </div>
           </header>
         </div>
-        {descriptionAssociatedPlants}
+        // {descriptionAssociatedPlants}
+        <PlantDescription plant={plant} />
         <section className="double-top">
           {associatedPlants}
         </section>
@@ -203,6 +187,48 @@ var Plant = React.createClass({
     );
   }
 });
+
+var SowingHarverstDate = React.createClass({
+  render: function() {
+    return <div className='swing-and-harvest-date'>
+      <div className='sowing-date'> {this.props.sowing_date} </div>
+      <div className='harvest-date'> {this.props.harvest_date} </div>
+    </div>
+  }
+});
+
+var GroundType = React.createClass({
+  render: function() {
+    return <div className='swing-and-harvest-date'>
+      <div className='ground-type'> {this.props.ground_type} </div>
+    </div>
+  }
+});
+
+var PlantDescription = React.createClass({
+  render: function() {
+    return <div className="fly-in">
+      <section className="bg-grey open associated-box">
+        <div className="container">
+          <div className="three columns">
+            <div className="circle big-circle">
+              <img src={this.props.plant.img} />
+            </div>
+          </div>
+          <div className="nine columns">
+            <h1 className="float-left fly-in b i">{this.props.plant.name}</h1>
+            <hr className="clearfix"/>
+            <p className="justify"> {this.props.plant.desc} </p>
+            <GroundType ground_type={this.props.plant.ground_type}/>
+            <SowingHarverstDate sowing_date={this.props.plant.sowing_date} harvest_date={this.props.plant.harvest_date}/>
+          </div>
+        </div>
+      </section>
+      <div className="triangle-illu"></div>
+    </div>
+  }
+});
+
 
 React.render(
   <AssociationBox data={window.plants} />,
