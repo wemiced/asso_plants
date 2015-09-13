@@ -1,6 +1,5 @@
 var AssociationBox = React.createClass({
 
-
   componentDidMount: function() {
       window.addEventListener('scroll', this.handleScroll);
       this.scrollTop = 0;
@@ -57,14 +56,13 @@ var AssociationBox = React.createClass({
             </div>
           </header>
         </div>
-        // {descriptionAssociatedPlants}
         <PlantDescription plant={plant} />
         <section className="double-top">
           {associatedPlants}
         </section>
         <div className="footer-illu double-top"></div>
         <footer>
-            <h4 className="text-center text-dark-dark b i">Made with love</h4>
+          <h4 className="text-center text-dark-dark b i">Made with love</h4>
         </footer>
       </div>
     );
@@ -110,13 +108,13 @@ var SearchBar = React.createClass({
     });
   },
   render: function() {
+    var that = this;
     return (
       <div className='SearchBar open'>
         <input type="text" name='vegetables' id='typeahead' placeholder="Rechercher une plante" ref="plantName" />
         <div className="search-icon">
-          <img src="/assets/svg/search.svg"/>
+          <img /*onClick={function(){that.props.onSelectedPlant($('#typeahead').val())}}*/ src="/assets/svg/search.svg"/>
         </div>
-        <input type="submit" value=""/>
       </div>
     );
   }
@@ -228,7 +226,6 @@ var PlantDescription = React.createClass({
     </div>
   }
 });
-
 
 React.render(
   <AssociationBox data={window.plants} />,
