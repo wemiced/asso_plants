@@ -15,7 +15,6 @@ var AssociationBox = React.createClass({
     window.removeEventListener('scroll', this.handleScroll);
   },
   handleScroll: function(event) {
-    //$('html, body').stop(true,false);
     if ($(window).scrollTop() >= 150)
     {
       $('header').removeClass('open');
@@ -36,7 +35,6 @@ var AssociationBox = React.createClass({
   },
   render: function() {
     var associatedPlants;
-    var descriptionAssociatedPlants;
     var plant;
     if (this.state.selectedPlantName) {
       var plant = this.props.data.find({name: this.state.selectedPlantName});
