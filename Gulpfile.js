@@ -157,8 +157,8 @@ gulp.task('open', function(){
     livereload({ start: true });
     livereload.listen();
     gulp.watch(paths.styles.watch, ['sass']);
-    gulp.watch(paths.files.watch, ['files']);
-    gulp.watch(paths.assets.watch, ['imagemin', 'files']);
+    // gulp.watch(paths.files.watch, ['files']);
+    // gulp.watch(paths.assets.watch, ['imagemin', 'files']);
     gulp.watch(paths.jsminifier.watch, ['build-js']);
   });
 
