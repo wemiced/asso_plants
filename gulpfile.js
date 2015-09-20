@@ -51,12 +51,26 @@
       }
   }
   
+  var displayError = function(error) {
+
+      var errorString = '[' + error.plugin + ']';
+      errorString += ' ' + error.message.replace("\n",''); 
+
+      if(error.fileName)
+          errorString += ' in ' + error.fileName;
+
+      if(error.lineNumber)
+          errorString += ' on line ' + error.lineNumber;
+      console.error(errorString);
+
+  }
+
   function getTask(task) {
-      return require('./gulp-tasks/' + task)(gulp, plugins, paths);
+      return require('./gulp-tasks/' + task)(gulp, plugins, paths, displayError);
   }
 
   gulp.task('clean', getTask('clean'));
-  gulp.task('serve', getTask('serve'));
+  gulp.task('serve', getTask('nodemon'));
   gulp.task('style', getTask('style'));
   gulp.task('assets', getTask('assets'));
   gulp.task('jade', getTask('jade'));
