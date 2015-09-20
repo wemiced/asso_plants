@@ -1,0 +1,70 @@
+/* # Typographic base
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+	@include include-font("../assets/fonts/icons/", "asso-plantes"); 
+	
+	[class^="icon-"], [class*=" icon-"] {
+		font-family: 'asso-plantes';
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.icon {
+	  &.pull-left { margin-right: .3em; }
+	  &.pull-right { margin-left: .3em; }
+	}
+
+	.icon-spin {
+	  @include animation(spin, 2s, infinite, linear);
+	}
+
+	.icon-2x { font-size: 2em; }
+	.icon-3x { font-size: 3em; }
+	.icon-4x { font-size: 4em; }
+	.icon-5x { font-size: 5em; }
+
+
+
+.icon-mouse:before {
+	content: "\e600";
+}
+.icon-lamp:before {
+	content: "\e601";
+}
+.icon-attachment:before {
+	content: "\e602";
+}
+.icon-info:before {
+	content: "\e603";
+}
+.icon-paperplane:before {
+	content: "\e604";
+}
+.icon-rocket:before {
+	content: "\e605";
+}
+.icon-grin:before {
+	content: "\e606";
+}
+.icon-filter:before {
+	content: "\e607";
+}
+.icon-friends:before {
+	content: "\e608";
+}
+.icon-ennemies:before {
+	content: "\e609";
+}
+.icon-search:before {
+	content: "\e60a";
+}
+.icon-close:before {
+	content: "\e60b";
+}

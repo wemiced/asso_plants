@@ -1,0 +1,15 @@
+/* # Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+	a:not(.button) {
+		text-decoration: none;
+
+		&:hover 	{ outline: 0; text-decoration: underline; }
+		&:active 	{ outline: 0; }
+		&:visited 	{ color: inherit; }
+		&:focus	 	{ outline: 0;  }
+	}
+
+	a:not(.button) + a:not(.button) {
+		margin-left: 20px;
+	}
