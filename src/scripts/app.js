@@ -206,7 +206,7 @@ var PlantDescription = React.createClass({
           </div>
           <div className="nine col">
             <h4 className="pull-left fly-in b i">{this.props.plant.name}</h4>
-            <hr className="clearfix"/>
+            <hr className="lines"/>
             <p className="justify"> {this.props.plant.desc} </p>
             <GroundType ground_type={this.props.plant.ground_type}/>
             <SowingHarverstDate sowing_date={this.props.plant.sowing_date} harvest_date={this.props.plant.harvest_date}/>
