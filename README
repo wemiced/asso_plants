@@ -1,6 +1,4 @@
 INSTALLATION
 ============
 
-Npm install
-gulp production
-gulp
+sh install.sh
